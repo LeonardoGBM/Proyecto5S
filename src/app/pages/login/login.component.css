@@ -1,15 +1,15 @@
-.container-fluid{
-    background-image: url('../../../assets/img/login.jpg');
-    background-size:cover;
-    background-repeat:no-repeat;
+.container-fluid {
+    background-image: url('../../../assets/img/loginb.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
     width: 100%;
     height: 100%;
     padding: 0;
     margin: 0;
     overflow: hidden;
-    display:flex;
-    margin: 0;
-    padding: 0;
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
     position: fixed;
     top: 0;
     left: 0;
