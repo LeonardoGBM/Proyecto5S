@@ -46,6 +46,8 @@ import {MessageModule} from 'primeng/message';
 import {ProgressSpinnerModule} from 'primeng/progressspinner';
 import {ChartModule} from 'primeng/chart';
 import {FieldsetModule} from 'primeng/fieldset';
+import { MenubarModule } from 'primeng/menubar';
+import { BreadcrumbModule } from 'primeng/breadcrumb';
 
 
 @NgModule({
@@ -99,7 +101,9 @@ import {FieldsetModule} from 'primeng/fieldset';
         AvatarModule,
         AvatarGroupModule,
         ChartModule,
-        FieldsetModule
+        FieldsetModule,
+        MenubarModule,
+        BreadcrumbModule
     ],
     exports: [
         ProgressSpinnerModule,
@@ -149,7 +153,9 @@ import {FieldsetModule} from 'primeng/fieldset';
         AvatarModule,
         AvatarGroupModule,
         ChartModule,
-        FieldsetModule
+        FieldsetModule,
+        MenubarModule,
+        BreadcrumbModule
     ]
 })
 export class PrimengModule {
