@@ -1,9 +1,9 @@
 .container-fluid {
-    background-image: url('../../../assets/img/loginb.jpg');
+    background-image: url('../../../assets/img/lo.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     width: 100%;
-    height: 100%;
+    height: 100vh; /* Cambiado de height: 100%; */
     padding: 0;
     margin: 0;
     overflow: hidden;
@@ -13,4 +13,5 @@
     position: fixed;
     top: 0;
     left: 0;
-}
+  }
+  

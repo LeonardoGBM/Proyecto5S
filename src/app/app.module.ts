@@ -16,7 +16,7 @@ import { RolesComponent } from './pages/roles/roles.component';
 import { NavComponent } from './layout/nav/nav.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { SidebarComponent } from './layout/sidebar/sidebar.component';
-
+import { SidebarModule } from 'primeng/sidebar';
 
 @NgModule({
   declarations: [
@@ -36,7 +36,8 @@ import { SidebarComponent } from './layout/sidebar/sidebar.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    PrimengModule
+    PrimengModule,
+    SidebarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

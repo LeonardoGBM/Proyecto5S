@@ -1,1 +1,36 @@
-<p>sidebar works!</p>
+<div class="pos-f-t">
+  <nav class="navbar p-2" style="background-color:#563d7c;">
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+      data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false"
+      aria-label="Toggle navigation" style="background-color: rgba(255, 255, 255, 0.673);">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="d-flex justify-content-center align-items-center m-3">
+      <a class="nav-link mx-3" href="#"><i class="fas fa-home fa-lg" style="color:rgba(255, 255, 255, 0.673);"></i>
+        Inicio</a>
+      <a class="nav-link mx-3" href="#"><i class="fas fa-user-tie fa-lg" style="color: rgba(255, 255, 255, 0.673);"></i>
+        Usuarios</a>
+      <a class="nav-link mx-3" href="#"><i class="fas fa-book fa-lg" style="color: rgba(255, 255, 255, 0.673);"></i>
+        Libros</a>
+    </div>
+  </nav>
+
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="navbarToggleExternalContent">
+    <div class="offcanvas-header" style="background-color: rgba(137, 43, 226, 0.673);">
+      <h5 class="offcanvas-title text-white"><b>Menu de la biblioteca</b></h5>
+      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body bg-dark p-4" >
+      <div class="bg-dark"><h5><i class="fas fa-list fa-lg fa-2x" style="color: #892be2;"> Secciones</i></h5></div><br><br>
+      <label class="btn btn-secondary" style="margin-left: 20px; background: rgba(137, 43, 226, 0); border: none;">
+        <input type="radio" name="options" id="option2" autocomplete="off" style="display: none; margin-top: 100px;">
+        <a href="##" style="text-decoration: none; color: white;"><i class="fas fa-book fa-2x" style="color: #892be2;">
+            Gestión Libros</i></a><br><br><br>
+        <a href="##" style="text-decoration: none; color: white;"><i class="fas fa-tags fa-lg fa-2x"
+            style="color: #892be2;">Gestión Categorías</i></a><br><br><br>
+        <a href="##" style="text-decoration: none; color: white;"><i class="fas fa-user-tie fa-2x"
+            style="color: #892be2;"> Gestión Alquileres</i></a><br><br>
+      </label>
+    </div>
+  </div>
+</div>
