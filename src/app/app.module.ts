@@ -17,7 +17,9 @@ import { NavComponent } from './layout/nav/nav.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { SidebarComponent } from './layout/sidebar/sidebar.component';
 import { SidebarModule } from 'primeng/sidebar';
-
+import { RentalsComponent } from './pages/rentals/rentals.component';
+import { FormComponent } from './pages/form/form.component';
+ 
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +33,9 @@ import { SidebarModule } from 'primeng/sidebar';
     RolesComponent,
     NavComponent,
     FooterComponent,
-    SidebarComponent
+    SidebarComponent,
+    RentalsComponent,
+    FormComponent
   ],
   imports: [
     BrowserModule,

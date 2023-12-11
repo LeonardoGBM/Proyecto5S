@@ -48,7 +48,8 @@ import {ChartModule} from 'primeng/chart';
 import {FieldsetModule} from 'primeng/fieldset';
 import { MenubarModule } from 'primeng/menubar';
 import { BreadcrumbModule } from 'primeng/breadcrumb';
-
+import { PaginatorModule } from 'primeng/paginator';
+import { DynamicDialogModule } from 'primeng/dynamicdialog';
 
 @NgModule({
     declarations: [],
@@ -103,7 +104,9 @@ import { BreadcrumbModule } from 'primeng/breadcrumb';
         ChartModule,
         FieldsetModule,
         MenubarModule,
-        BreadcrumbModule
+        BreadcrumbModule,
+        PaginatorModule,
+        DynamicDialogModule
     ],
     exports: [
         ProgressSpinnerModule,
@@ -155,7 +158,9 @@ import { BreadcrumbModule } from 'primeng/breadcrumb';
         ChartModule,
         FieldsetModule,
         MenubarModule,
-        BreadcrumbModule
+        BreadcrumbModule,
+        PaginatorModule,
+        DynamicDialogModule
     ]
 })
 export class PrimengModule {

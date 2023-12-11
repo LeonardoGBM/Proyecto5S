@@ -5,14 +5,27 @@ import { LoginComponent } from './pages/login/login.component';
 import { NavComponent } from './layout/nav/nav.component';
 import { SidebarComponent } from './layout/sidebar/sidebar.component';
 import { FooterComponent } from './layout/footer/footer.component';
+import { BooksComponent } from './pages/books/books.component';
+import { CategoriesComponent } from './pages/categories/categories.component';
+import { AuthorsComponent } from './pages/authors/authors.component';
+import { EditorialsComponent } from './pages/editorials/editorials.component';
+import { RegisterComponent } from './pages/register/register.component';
+import { RentalsComponent } from './pages/rentals/rentals.component';
 
 const routes: Routes = [
-  { path: '', component: LoginComponent},
+  { path: '', component:LoginComponent },
   { path: 'dashboard', component:DashboardComponent },
-  { path: 'login', component:LoginComponent },
-  { path: 'nav', component:NavComponent },
-  { path: 'sidebar', component:SidebarComponent },
-  { path: 'footer', component:FooterComponent }
+  { path: 'category', component:CategoriesComponent },
+  { path: 'book', component:BooksComponent },
+  { path: 'author', component:AuthorsComponent },
+  { path: 'editorial', component:EditorialsComponent },
+  { path: 'register', component:RegisterComponent },
+  { path: 'rental', component:RentalsComponent },
+
+
+
+
+
 
 
 ];

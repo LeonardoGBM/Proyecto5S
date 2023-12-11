@@ -1,20 +1,12 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ServiceService } from 'src/app/service/service.service';
-import { MessageService } from 'primeng/api';
-import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
-import { Product } from '../../../domain/product';
-interface PageEvent {
-  first: number;
-  rows: number;
-  page: number;
-  pageCount: number;
-}
+
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  selector: 'app-rentals',
+  templateUrl: './rentals.component.html',
+  styleUrls: ['./rentals.component.css']
 })
-export class RegisterComponent implements OnInit{
+export class RentalsComponent implements OnInit {
   listar: any[] = [];
 
   constructor(private extraer: ServiceService) {}
@@ -43,8 +35,4 @@ export class RegisterComponent implements OnInit{
       this.rows = event.rows;
     }
 
-    
-
 }
-
-
