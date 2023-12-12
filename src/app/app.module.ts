@@ -19,6 +19,9 @@ import { SidebarComponent } from './layout/sidebar/sidebar.component';
 import { SidebarModule } from 'primeng/sidebar';
 import { RentalsComponent } from './pages/rentals/rentals.component';
 import { FormComponent } from './pages/form/form.component';
+import { FormsModule } from '@angular/forms';
+import { EmailComponent } from './pages/email/email.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
  
 @NgModule({
   declarations: [
@@ -35,13 +38,17 @@ import { FormComponent } from './pages/form/form.component';
     FooterComponent,
     SidebarComponent,
     RentalsComponent,
-    FormComponent
+    FormComponent,
+    EmailComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     PrimengModule,
-    SidebarModule
+    SidebarModule,
+    FormsModule,
+    BrowserAnimationsModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

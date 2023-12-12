@@ -1,5 +1,5 @@
 .container-fluid {
-    background-image: url('../../../assets/img/lo.jpg');
+  background: radial-gradient(circle at center, #9104a7,  rgba(137, 43, 226, 0.722), #ffffff); 
     background-size: cover;
     background-repeat: no-repeat;
     width: 100%;
@@ -13,5 +13,38 @@
     position: fixed;
     top: 0;
     left: 0;
+   
   }
   
+
+  
+  /* styles.css o styles.scss */
+.dialog-content {
+  text-align: center;
+  font-size: 18px;
+  padding: 20px;
+}
+
+.dialog-buttons {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  align-items: center;
+}
+
+.confirm-button, .cancel-button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.cancel-button {
+  background-color: #f44336;
+}
+
+

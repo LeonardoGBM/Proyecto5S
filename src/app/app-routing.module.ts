@@ -11,6 +11,7 @@ import { AuthorsComponent } from './pages/authors/authors.component';
 import { EditorialsComponent } from './pages/editorials/editorials.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { RentalsComponent } from './pages/rentals/rentals.component';
+import { EmailComponent } from './pages/email/email.component';
 
 const routes: Routes = [
   { path: '', component:LoginComponent },
@@ -21,12 +22,7 @@ const routes: Routes = [
   { path: 'editorial', component:EditorialsComponent },
   { path: 'register', component:RegisterComponent },
   { path: 'rental', component:RentalsComponent },
-
-
-
-
-
-
+  { path: 'reset-password', component: EmailComponent },
 
 ];
 
