@@ -18,7 +18,8 @@ import { FooterComponent } from './layout/footer/footer.component';
 import { SidebarComponent } from './layout/sidebar/sidebar.component';
 import { SidebarModule } from 'primeng/sidebar';
 import { RentalsComponent } from './pages/rentals/rentals.component';
-import { FormComponent } from './pages/form/form.component';
+
+
  
 @NgModule({
   declarations: [
@@ -35,7 +36,7 @@ import { FormComponent } from './pages/form/form.component';
     FooterComponent,
     SidebarComponent,
     RentalsComponent,
-    FormComponent
+
   ],
   imports: [
     BrowserModule,

@@ -40,5 +40,12 @@ export class CategoriesComponent  implements OnInit {
       this.first = event.first;
       this.rows = event.rows;
     }
-
+    abrirModal() {
+      const modal = document.querySelector("#modal") as HTMLDialogElement;
+      modal.showModal();
+    }
+    cerrarModal() {
+      const modal = document.querySelector("#modal") as HTMLDialogElement;
+      modal.close();
+    }
 }
