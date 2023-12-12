@@ -35,14 +35,14 @@ import { RentalsComponent } from './pages/rentals/rentals.component';
     NavComponent,
     FooterComponent,
     SidebarComponent,
-    RentalsComponent,
+    RentalsComponent
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     PrimengModule,
-    SidebarModule
+    SidebarModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
