@@ -24,6 +24,7 @@ const routes: Routes = [
   { path: 'rental', component:RentalsComponent },
   { path: 'reset-password', component: EmailComponent },
 
+
 ];
 
 @NgModule({

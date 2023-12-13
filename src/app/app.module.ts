@@ -18,7 +18,7 @@ import { FooterComponent } from './layout/footer/footer.component';
 import { SidebarComponent } from './layout/sidebar/sidebar.component';
 import { SidebarModule } from 'primeng/sidebar';
 import { RentalsComponent } from './pages/rentals/rentals.component';
-import { FormComponent } from './pages/form/form.component';
+
 import { FormsModule } from '@angular/forms';
 import { EmailComponent } from './pages/email/email.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -38,7 +38,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FooterComponent,
     SidebarComponent,
     RentalsComponent,
-    FormComponent,
     EmailComponent
   ],
   imports: [
