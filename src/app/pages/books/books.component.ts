@@ -40,7 +40,7 @@ export class BooksComponent  implements OnInit {
       this.first = event.first;
       this.rows = event.rows;
     }
-
+    // Formulario
     abrirModal() {
       const modal = document.querySelector("#modal") as HTMLDialogElement;
       modal.showModal();
@@ -49,4 +49,9 @@ export class BooksComponent  implements OnInit {
       const modal = document.querySelector("#modal") as HTMLDialogElement;
       modal.close();
     }
+
+    // Buscador
+    value: string | undefined;
+    
+    value2: string | undefined;
 }
