@@ -24,14 +24,6 @@ const routes: Routes = [
   { path: 'rental', component:RentalsComponent },
   { path: 'termino', component:RolesComponent },
 
-
-
-
-
-
-
-
-
 ];
 
 @NgModule({
