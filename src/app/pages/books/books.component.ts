@@ -15,18 +15,22 @@ import { ServiceService } from 'src/app/service/service.service';
 export class BooksComponent  implements OnInit {
 
   listar: any[] = [];
+  nuevoDato:  string='';
+  correo:  string='';
+  authService: any;
+  editando: boolean = false;
   constructor(private extraer: ServiceService) {}
 
   ngOnInit() {
     this.traer();
   }
-
-  traer() {
+    //Funcion para Enlistar datos
+    traer() {
     this.extraer.datos().subscribe(data => {
       this.listar = data;
       console.log(data);
     });
-  }
+    }
 
   first: number = 0;
 
@@ -40,18 +44,59 @@ export class BooksComponent  implements OnInit {
       this.first = event.first;
       this.rows = event.rows;
     }
-    // Formulario
-    abrirModal() {
-      const modal = document.querySelector("#modal") as HTMLDialogElement;
-      modal.showModal();
-    }
-    cerrarModal() {
-      const modal = document.querySelector("#modal") as HTMLDialogElement;
-      modal.close();
+
+    
+
+
+    //Funcion para agregar datos:
+    agregarDato(){
+      const data = {
+        nombre: this.nuevoDato,
+        correoElectronico: this.correo
+      };
+    
+      this.extraer.agregarDato(data).subscribe(response => {
+        console.log('Dato agregado', response);
+        // Puedes agregar lógica adicional aquí si es necesario
+      });
     }
 
-    // Buscador
-    value: string | undefined;
+    //modal nuevo
+
+    displayDialog: boolean = false;
+    exDialog: boolean = false;
+
+
+
+    showDialog() {
+    this.displayDialog = true;
+    }
+    hideDialog() {
+      this.displayDialog = false;
+      }
+
+    //Formulario de editar
+    EditDialog() {
+      this.exDialog = true;
+      }
+    exitDialog() {
+      this.exDialog = false;
+      }
+
+    //Funcion para eliminar datos
+    eliminar(dato: any) {
+      if (confirm('¿Elimina a joselito XD?')) {
+        this.extraer.eliminar(dato.id).subscribe(response => {
+          console.log('Libro eliminado', response);
+          // Actualiza la lista después de eliminar
+          this.traer();
+        });
+      }
+    }
+
+  
+
     
-    value2: string | undefined;
 }
+
+

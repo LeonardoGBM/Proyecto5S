@@ -12,54 +12,57 @@
         </div>
         <div class="col-md-12">
             <div class="d-flex justify-content-end" style="margin-top: 60px; margin-bottom: 20px; margin-right: 30px;">
-                <p-button label="Agregar" (click)="abrirModal()" [raised]="true" severity="Agregar"><i class="fas fa-plus fa-1x" style="color: white; margin-left: 10px; cursor: pointer; margin-right: 15px;"></i></p-button>
+                <span class="p-input-icon-left" style="margin-right: 40px;">
+                    <i class="fas fa-search fa-lg"></i>
+                    <input type="text" pInputText />
+                    <p-button label="Submit"></p-button>
+                </span>
+                <p-button label="Agregar" (click)="showDialog()" [raised]="true" severity="Agregar"><i class="fas fa-plus fa-1x" style="color: white; margin-left: 10px; cursor: pointer; margin-right: 15px;"></i></p-button>
             </div> 
-            <dialog id="modal" style="background: rgba(255, 255, 255, 0); border: none; ">
-                    <div class="card" style="border-radius: none; background: rgba(128, 128, 128, 0.44); border-radius: 20px;">
-                        <div class="card-body" style="height: 350px; width: 535px;">
-                            <form style="width: 500px;">
-                                <div class="form-group d-flex justify-content-center">
-                                    <h3 style="font-family: 'Monospace', monospace; margin-top: 30px;"><b>Registrar Categoria</b></h3>
-                                </div>
-                                <div class="form-group" style="margin-top: 30px;">
-                                    <label for="category" class=""
-                                        style="font-size: 15px; font-family: 'Monospace', monospace;"><b>Categoría:</b></label>
-                                    <input type="text" class="form-control" id="category"
-                                        placeholder="Ingrese la categoría"
-                                        style="background-color: rgba(0, 0, 0, 0.212); border-color: black; background: white; font-family: 'Monospace', monospace;">
-                                </div>
-                                <div class="d-flex justify-content-between align-items-center mt-4">
-                                    <div style="margin-left: 90px; margin-top: 40px;">
-                                        <button type="button" (click)="abrirModal()" class="btn btn-success"
-                                            style="border-radius: 10px; padding-right: 20px; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; font-family: 'Monospace', monospace; font-size: 20px; color: white;"><b>Confirmar</b>
-                                        </button>
-                                    </div>
-                                    <div style="margin-right: 90px; margin-top: 40px;">
-                                        <button type="button" (click)="cerrarModal()" class="btn btn-danger"
-                                            style="border-radius: 10px; padding-right: 25px; padding-left: 25px; padding-top: 10px; padding-bottom: 10px; font-family: 'Monospace', monospace; font-size: 20px; color: white;"><b>Cancelar</b></button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
+            <div class="modal-overlay" *ngIf="displayDialog"></div>
+
+            <p-dialog header="Registrar Categoria" [(visible)]="displayDialog" [modal]="true" [responsive]="true" >
+              <!-- Contenido del diálogo -->
+              <form style="width: 500px;" (submit)="agregarDato()">
+                  
+                  <div class="form-group">
+                      <label for="title" class="" style="font-size: 15px;"><b>Categoria:</b></label>
+                      <input type="text" [(ngModel)]="nuevoDato" name="nuevoDato" class="form-control" id="title" placeholder="Ingrese la categoria"
+                          style="background-color: rgba(0, 0, 0, 0.212); border-color: black; background: white; font-family: 'Monospace', monospace;">
+                  </div>
+                  <div class="d-flex justify-content-between align-items-center mt-4">
+                      <div style="margin-left: 90px;">
+                          <button type="submit" (click)="agregarDato()" class="btn btn-success"
+                              style="border-radius: 10px; padding-right: 20px; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; font-family: 'Monospace', monospace; font-size: 20px; color: white;"><b>Confirmar</b>
+                          </button>
+                      </div>
+                      <div style="margin-right: 90px;">
+                          <button type="button" (click)="hideDialog()" class="btn btn-danger"
+                              style="border-radius: 10px; padding-right: 25px; padding-left: 25px; padding-top: 10px; padding-bottom: 10px; font-family: 'Monospace', monospace; font-size: 20px; color: white;"><b>Cancelar</b></button>
+                      </div>
+                  </div>
+              </form>
               
-            </dialog>
+             
+            </p-dialog>
 
         </div>
         <div class="card">
             <p-table [value]="listar" [tableStyle]="{ 'min-width': '50rem' }">
                 <ng-template pTemplate="header">
                     <tr>
-                        <th>Nombre</th>
-                        <th>Correo</th>
-                        <th>Contraseña</th>
+                        <th>Categoria</th>
+                        <th>Editar/Eliminar</th>
                     </tr>
                 </ng-template>
                 <ng-template pTemplate="body" let-dato>
                     <tr>
                         <td>{{ dato.nombre }}</td>
-                        <td>{{ dato.correoElectronico }}</td>
-                        <td>{{ dato.contrasena }}</td>
+                        <td>
+                            <button type="button" (click)="eliminar(dato)" class="btn btn-danger">
+                              Eliminar
+                            </button>
+                          </td>
                     </tr>
                 </ng-template>
             </p-table>

@@ -106,7 +106,8 @@ import { DynamicDialogModule } from 'primeng/dynamicdialog';
         MenubarModule,
         BreadcrumbModule,
         PaginatorModule,
-        DynamicDialogModule
+        DynamicDialogModule,
+        InputTextModule,
     ],
     exports: [
         ProgressSpinnerModule,
