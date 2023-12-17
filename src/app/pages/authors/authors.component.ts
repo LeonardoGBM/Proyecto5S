@@ -53,8 +53,7 @@ export class AuthorsComponent implements OnInit {
     //Funcion para agregar datos:
     agregarDato(){
       const data = {
-        nombre: this.nuevoDato,
-        correoElectronico: this.correo
+        authorName: this.nuevoDato
       };
     
       this.extraer.agregarDato(data).subscribe(response => {

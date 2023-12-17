@@ -7,14 +7,13 @@ interface PageEvent {
   page: number;
   pageCount: number;
 }
-
+ 
 @Component({
   selector: 'app-editorials',
   templateUrl: './editorials.component.html',
   styleUrls: ['./editorials.component.css']
 })
 export class EditorialsComponent  implements OnInit {
-
   correo:  string='';
   authService: any;
   editando: boolean = false;

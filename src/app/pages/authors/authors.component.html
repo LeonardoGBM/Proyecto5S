@@ -107,7 +107,7 @@
 
                 <div class="form-group">
                     <label for="title" class="" style="font-size: 15px;"><b>Título:</b></label>
-                    <input type="text" [(ngModel)]="datoEditado.nombre" name="nombreEditado" class="form-control" id="title"
+                    <input type="text" [(ngModel)]="datoEditado.authorName" name="nombreEditado" class="form-control" id="title"
                         placeholder="Ingrese el título" style="background-color: rgba(0, 0, 0, 0.212); border-color: black; background: white; font-family: 'Monospace', monospace;">
                 </div>
                 <div class="form-group">
@@ -220,7 +220,7 @@
                 </ng-template>
                 <ng-template pTemplate="body" let-dato let-i="index">
                     <tr>
-                        <td>{{ dato.nombre }}</td>
+                        <td>{{ dato.authorName }}</td>
                         <td>{{ dato.correoElectronico }}</td>
                         <td>{{ dato.correoElectronico }}</td>
                         <td>{{ dato.correoElectronico }}</td>

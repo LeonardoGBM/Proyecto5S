@@ -9,8 +9,11 @@ export class ServiceService {
   emit(falsae: any) {
     throw new Error('Method not implemented.');
   }
-  
-  public api = "http://localhost:8081/api/usuario/"
+  public api = "http://localhost:8081/usuario/"
+  public apiTraerAuthor = "http://localhost:8081/usuario/"
+  public apiAuthor = "http://localhost:8081/api/author"
+
+
   constructor(private http: HttpClient) { }
 //Metodo para Enlistar datos
   public datos():Observable<any>{
@@ -35,7 +38,7 @@ export class ServiceService {
   }
 // Metodo para Eliminar datos
   eliminar(id: number): Observable<any> {
-    const url = `${this.api}${id}/`;
+    const url = `${this.apiAuthor}/${id}/`;
     console.log('URL de eliminación:', url);
     return this.http.delete(url)
       .pipe(
@@ -47,8 +50,7 @@ export class ServiceService {
   }
  // Método para Editar datos
 
- public editarDato(id: number, data: any): Observable<any> {
-  const url = 'http://localhost:8081/api/usuario/'; // Asegúrate de tener un endpoint que admita la actualización por ID
+ public editarDato(id: number, data: any): Observable<any> { // Asegúrate de tener un endpoint que admita la actualización por ID
 
   const httpOptions = {
     headers: new HttpHeaders({
@@ -56,7 +58,7 @@ export class ServiceService {
     })
   };
 
-  return this.http.put(url, data, httpOptions)
+  return this.http.put(this.apiTraerAuthor, data, httpOptions)
     .pipe(
       catchError((error: any) => {
         console.error('Error al editar el dato:', error);

@@ -10,12 +10,18 @@ import { ServiceService } from 'src/app/service/service.service';
 })
 export class BooksComponent  implements OnInit {
 
-  correo:  string='';
+  title:  string='';
+  publicationDate: string='';
+  author:  string='';
+  category:  string='';
+  publisher:  string='';
+  language:  string='';
+  pages:  string='';
+  description:  string='';
   authService: any;
   editando: boolean = false;
   listar: any[] = [];
-  nuevoDato: string='';
-  datoEditado: any = { nombre: '', correoElectronico: '', contrasena: '' };
+  datoEditado: any = { title: '', publicationDate: '', author: '', category: '', publisher: '', language: '', pages: '', description: '' };
   modoEdicion: boolean = false;
   constructor(private extraer: ServiceService) {}
 
@@ -28,7 +34,7 @@ export class BooksComponent  implements OnInit {
       this.listar = data;
       console.log(data);
     });
-    }
+    } 
 
   first: number = 0;
 
@@ -49,8 +55,14 @@ export class BooksComponent  implements OnInit {
     //Funcion para agregar datos:
     agregarDato(){
       const data = {
-        nombre: this.nuevoDato,
-        correoElectronico: this.correo
+        title: this.title,
+        publicationDate: this.publicationDate,
+        author: this.author,
+        category: this.category,
+        publisher: this.publisher,
+        language: this.language,
+        pages: this.pages,
+        description: this.description
       };
     
       this.extraer.agregarDato(data).subscribe(response => {
@@ -84,7 +96,7 @@ export class BooksComponent  implements OnInit {
 
     //Funcion para eliminar datos
     eliminar(dato: any) {
-      if (confirm('¿Elimina a joselito XD?')) {
+      if (confirm('¿Quiere eliminar el libro?')) {
         this.extraer.eliminar(dato.id).subscribe(response => {
           console.log('Libro eliminado', response);
           // Actualiza la lista después de eliminar
