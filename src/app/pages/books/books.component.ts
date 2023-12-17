@@ -18,7 +18,6 @@ export class BooksComponent  implements OnInit {
   nuevoDato:  string='';
   correo:  string='';
   authService: any;
-  editando: boolean = false;
   constructor(private extraer: ServiceService) {}
 
   ngOnInit() {

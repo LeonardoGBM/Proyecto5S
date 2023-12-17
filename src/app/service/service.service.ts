@@ -45,16 +45,18 @@ export class ServiceService {
         })
       );
   }
-  
  // Método para Editar datos
- public editar(id: number, newData: any): Observable<any> {
-  const url = `${this.api}${id}/`;
+
+public editarDato(id: number, data: any): Observable<any> {
+  const url = 'http://localhost:8081/api/usuario/'; // Asegúrate de tener un endpoint que admita la actualización por ID
+
   const httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
     })
   };
-  return this.http.put(url, newData, httpOptions)
+
+  return this.http.put(url, data, httpOptions)
     .pipe(
       catchError((error: any) => {
         console.error('Error al editar el dato:', error);
@@ -62,7 +64,6 @@ export class ServiceService {
       })
     );
 }
-
 
 }
 
