@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ServiceService } from 'src/app/service/service.service';
+import { ServiceAuthors } from 'src/app/service/service.authors';
 
 interface PageEvent {
   first: number;
@@ -14,14 +14,13 @@ interface PageEvent {
 })
 export class AuthorsComponent implements OnInit {
 
-  correo:  string='';
+  authorName:  string='';
   authService: any;
   editando: boolean = false;
   listar: any[] = [];
-  nuevoDato: string='';
-  datoEditado: any = { nombre: '', correoElectronico: '', contrasena: '' };
+  datoEditado: any = { authorName: '', };
   modoEdicion: boolean = false;
-  constructor(private extraer: ServiceService) {}
+  constructor(private extraer: ServiceAuthors) {}
 
   ngOnInit() {
     this.traer();
@@ -53,7 +52,7 @@ export class AuthorsComponent implements OnInit {
     //Funcion para agregar datos:
     agregarDato(){
       const data = {
-        authorName: this.nuevoDato
+        authorName: this.authorName
       };
     
       this.extraer.agregarDato(data).subscribe(response => {

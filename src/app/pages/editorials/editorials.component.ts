@@ -1,12 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ServiceService } from 'src/app/service/service.service';
+import { ServiceEditorialsService } from 'src/app/service/service-editorials.service';
 
-interface PageEvent {
-  first: number;
-  rows: number;
-  page: number;
-  pageCount: number;
-}
  
 @Component({
   selector: 'app-editorials',
@@ -14,14 +8,13 @@ interface PageEvent {
   styleUrls: ['./editorials.component.css']
 })
 export class EditorialsComponent  implements OnInit {
-  correo:  string='';
   authService: any;
   editando: boolean = false;
   listar: any[] = [];
-  nuevoDato: string='';
-  datoEditado: any = { nombre: '', correoElectronico: '', contrasena: '' };
+  publisherName: string = '';
+  datoEditado: any = { publisherName: '' };
   modoEdicion: boolean = false;
-  constructor(private extraer: ServiceService) {}
+  constructor(private extraer: ServiceEditorialsService) {}
 
   ngOnInit() {
     this.traer();
@@ -53,8 +46,7 @@ export class EditorialsComponent  implements OnInit {
     //Funcion para agregar datos:
     agregarDato(){
       const data = {
-        nombre: this.nuevoDato,
-        correoElectronico: this.correo
+        publisherName: this.publisherName,
       };
     
       this.extraer.agregarDato(data).subscribe(response => {

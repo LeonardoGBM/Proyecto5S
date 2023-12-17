@@ -1,7 +1,8 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MessageService } from 'primeng/api';
-import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
-import { ServiceService } from 'src/app/service/service.service';
+import { DialogService } from 'primeng/dynamicdialog';
+import { ServiceBooksService } from 'src/app/service/service-books.service';
+
 @Component({
   selector: 'app-books',
   templateUrl: './books.component.html',
@@ -23,7 +24,7 @@ export class BooksComponent  implements OnInit {
   listar: any[] = [];
   datoEditado: any = { title: '', publicationDate: '', author: '', category: '', publisher: '', language: '', pages: '', description: '' };
   modoEdicion: boolean = false;
-  constructor(private extraer: ServiceService) {}
+  constructor(private extraer: ServiceBooksService) {}
 
   ngOnInit() {
     this.traer();

@@ -113,44 +113,38 @@
                 <!-- Agregar las demás propiedades correspondientes -->
                 <div class="form-group">
                     <label for="author" class="" style="font-size: 15px; font-family: 'Monospace', monospace;"><b>Autor:</b></label>
-                    <input type="text" [(ngModel)]="datoEditado.author" name="autor" class="form-control" id="author"
+                    <input type="text" [(ngModel)]="datoEditado.author" name="autorEditado" class="form-control" id="author"
                         placeholder="Ingrese el autor" style="background-color: rgba(0, 0, 0, 0.212); border-color: black; background: white; font-family: 'Monospace', monospace;">
                 </div>
               
                 <div class="form-group">
                     <label for="category" class=""
                         style="font-size: 15px; font-family: 'Monospace', monospace;"><b>Categoría:</b></label>
-                    <input type="text" class="form-control" id="category" placeholder="Ingrese la categoría"
+                    <input type="text"  [(ngModel)]="datoEditado.category" class="form-control" id="category" placeholder="Ingrese la categoría"
                         style="background-color: rgba(0, 0, 0, 0.212); border-color: black; background: white; font-family: 'Monospace', monospace;">
                 </div>
                 <div class="form-group">
                     <label for="publisher" class=""
                         style="font-size: 15px; font-family: 'Monospace', monospace;"><b>Editorial:</b></label>
-                    <input type="text" class="form-control" id="publisher" placeholder="Ingrese la editorial"
+                    <input type="text"  [(ngModel)]="datoEditado.publisher" class="form-control" id="publisher" placeholder="Ingrese la editorial"
                         style="background-color: rgba(0, 0, 0, 0.212); border-color: black; background: white; font-family: 'Monospace', monospace;">
                 </div>
                 <div class="form-group">
                     <label for="language" class=""
                         style="font-size: 15px; font-family: 'Monospace', monospace;"><b>Idioma:</b></label>
-                    <input type="text" class="form-control" id="language" placeholder="Ingrese el idioma"
+                    <input type="text"  [(ngModel)]="datoEditado.language" class="form-control" id="language" placeholder="Ingrese el idioma"
                         style="background-color: rgba(0, 0, 0, 0.212); border-color: black; background: white; font-family: 'Monospace', monospace;">
                 </div>
                 <div class="form-group">
                     <label for="pages" class=""
                         style="font-size: 15px; font-family: 'Monospace', monospace;"><b>Páginas:</b></label>
-                    <input type="number" class="form-control" id="pages" placeholder="Ingrese el número de páginas"
+                    <input type="number"  [(ngModel)]="datoEditado.pages" class="form-control" id="pages" placeholder="Ingrese el número de páginas"
                         style="background-color: rgba(0, 0, 0, 0.212); border-color: black; background: white; font-family: 'Monospace', monospace;">
                 </div>
                 <div class="form-group">
                     <label for="pages" class=""
                         style="font-size: 15px; font-family: 'Monospace', monospace;"><b>Descripcion:</b></label>
-                    <input type="text" class="form-control" id="pages" placeholder="Ingrese la descripcion"
-                        style="background-color: rgba(0, 0, 0, 0.212); border-color: black; background: white; font-family: 'Monospace', monospace;">
-                </div>
-                <div class="form-group">
-                    <label for="cover" class=""
-                        style="font-size: 15px; font-family: 'Monospace', monospace;"><b>Portada:</b></label>
-                    <input type="text" class="form-control" id="cover" placeholder="Ingrese la URL de la portada"
+                    <input type="text"  [(ngModel)]="datoEditado.description" class="form-control" id="pages" placeholder="Ingrese la descripcion"
                         style="background-color: rgba(0, 0, 0, 0.212); border-color: black; background: white; font-family: 'Monospace', monospace;">
                 </div>
                 <div class="d-flex justify-content-between align-items-center mt-4">

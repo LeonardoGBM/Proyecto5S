@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ServiceService } from 'src/app/service/service.service';
+import { ServiceRentalsService } from 'src/app/service/service-rentals.service';
 
 @Component({
   selector: 'app-rentals',
@@ -7,15 +7,16 @@ import { ServiceService } from 'src/app/service/service.service';
   styleUrls: ['./rentals.component.css']
 })
 export class RentalsComponent implements OnInit {
-
-  correo:  string='';
+  reader:  string='';
+  book:  string='';
+  departureDate: Date = new Date();
+  entryDate:  Date = new Date();
   authService: any;
   editando: boolean = false;
   listar: any[] = [];
-  nuevoDato: string='';
-  datoEditado: any = { nombre: '', correoElectronico: '', contrasena: '' };
+  datoEditado: any = { reader: '', book: '', departureDate: '', entryDate: '', };
   modoEdicion: boolean = false;
-  constructor(private extraer: ServiceService) {}
+  constructor(private extraer: ServiceRentalsService) {}
 
   ngOnInit() {
     this.traer();
@@ -47,8 +48,10 @@ export class RentalsComponent implements OnInit {
     //Funcion para agregar datos:
     agregarDato(){
       const data = {
-        nombre: this.nuevoDato,
-        correoElectronico: this.correo
+        reader: this.reader,
+        book: this.book,
+        departureDate: this.departureDate,
+        entryDate: this.entryDate,
       };
     
       this.extraer.agregarDato(data).subscribe(response => {

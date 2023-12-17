@@ -1,14 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ServiceService } from 'src/app/service/service.service';
 import { MessageService } from 'primeng/api';
-import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
-import { Product } from '../../../domain/product';
-interface PageEvent {
-  first: number;
-  rows: number;
-  page: number;
-  pageCount: number;
-}
+import { DialogService } from 'primeng/dynamicdialog';
+import { ServiceRegisterService } from 'src/app/service/service-register.service';
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -16,14 +10,19 @@ interface PageEvent {
 })
 export class RegisterComponent implements OnInit{
  
-  correo:  string='';
+  name: string = '';
+  lastname: string = '';
+  address: string = '';
+  email: string = '';
+  password: string = '';
+
   authService: any;
   editando: boolean = false;
   listar: any[] = [];
   nuevoDato: string='';
-  datoEditado: any = { nombre: '', correoElectronico: '', contrasena: '' };
+  datoEditado: any = { name: '', lastname: '', address: '', email: '', password: '' };
   modoEdicion: boolean = false;
-  constructor(private extraer: ServiceService) {}
+  constructor(private extraer: ServiceRegisterService) {}
 
   ngOnInit() {
     this.traer();
@@ -55,8 +54,11 @@ export class RegisterComponent implements OnInit{
     //Funcion para agregar datos:
     agregarDato(){
       const data = {
-        nombre: this.nuevoDato,
-        correoElectronico: this.correo
+        name: this.name,
+        lastname: this.lastname,
+        address: this.address,
+        email: this.email,
+        password: this.password,
       };
     
       this.extraer.agregarDato(data).subscribe(response => {

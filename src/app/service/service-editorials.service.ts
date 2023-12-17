@@ -5,19 +5,18 @@ import { Observable, catchError } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class ServiceService {
+export class ServiceEditorialsService {
   emit(falsae: any) {
     throw new Error('Method not implemented.');
   }
-  public api = "http://localhost:8081/usuario/"
-  public apiTraerAuthor = "http://localhost:8081/usuario/"
-  public apiAuthor = "http://localhost:8081/api/author"
+  public api = "http://localhost:3000/"
 
 
   constructor(private http: HttpClient) { }
+  // Metodos de authors
 //Metodo para Enlistar datos
   public datos():Observable<any>{
-    return this.http.get<any>(this.api)
+    return this.http.get<any>(`${this.api}usuario/`)
   };
 
   $modal = new EventEmitter<any>();
@@ -28,7 +27,7 @@ export class ServiceService {
         'Content-Type': 'application/json'
       })
     };
-    return this.http.post(this.api, data, httpOptions)
+    return this.http.post(`${this.api}usuario/`, data, httpOptions)
     .pipe(
       catchError((error: any) => {
         console.error('Error al agregar el dato:', error);
@@ -38,12 +37,12 @@ export class ServiceService {
   }
 // Metodo para Eliminar datos
   eliminar(id: number): Observable<any> {
-    const url = `${this.apiAuthor}/${id}/`;
+    const url = `${this.api}usuario/${id}/`;
     console.log('URL de eliminación:', url);
     return this.http.delete(url)
       .pipe(
         catchError((error: any) => {
-          console.error('Error al eliminar el libro:', error);
+          console.error('Error al eliminar la editorial:', error);
           throw error;
         })
       );
@@ -58,7 +57,7 @@ export class ServiceService {
     })
   };
 
-  return this.http.put(this.apiTraerAuthor, data, httpOptions)
+  return this.http.put(`${this.api}usuario/`, data, httpOptions)
     .pipe(
       catchError((error: any) => {
         console.error('Error al editar el dato:', error);
@@ -66,6 +65,9 @@ export class ServiceService {
       })
     );
 }
+// Metodos de Books
+
 
 }
+
 

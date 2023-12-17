@@ -1,26 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { ServiceService } from 'src/app/service/service.service';
+import { ServiceCategoriesService } from 'src/app/service/service-categories.service';
 
-interface PageEvent {
-  first: number;
-  rows: number;
-  page: number;
-  pageCount: number;
-}
 @Component({
   selector: 'app-categories',
   templateUrl: './categories.component.html',
   styleUrls: ['./categories.component.css']
 })
 export class CategoriesComponent  implements OnInit {
-  correo:  string='';
+
   authService: any;
   editando: boolean = false;
   listar: any[] = [];
-  nuevoDato: string='';
-  datoEditado: any = { nombre: '', correoElectronico: '', contrasena: '' };
+  categoryName: string = '';
+  datoEditado: any = { categoryName: '' };
   modoEdicion: boolean = false;
-  constructor(private extraer: ServiceService) {}
+  constructor(private extraer: ServiceCategoriesService) {}
 
   ngOnInit() {
     this.traer();
@@ -52,8 +46,7 @@ export class CategoriesComponent  implements OnInit {
     //Funcion para agregar datos:
     agregarDato(){
       const data = {
-        nombre: this.nuevoDato,
-        correoElectronico: this.correo
+        categoryName: this.categoryName,
       };
     
       this.extraer.agregarDato(data).subscribe(response => {
