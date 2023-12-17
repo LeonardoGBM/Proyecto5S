@@ -1,4 +1,3 @@
-// books.component.ts
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MessageService } from 'primeng/api';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
@@ -14,10 +13,13 @@ import { ServiceService } from 'src/app/service/service.service';
 })
 export class BooksComponent  implements OnInit {
 
-  listar: any[] = [];
-  nuevoDato:  string='';
   correo:  string='';
   authService: any;
+  editando: boolean = false;
+  listar: any[] = [];
+  nuevoDato: string='';
+  datoEditado: any = { nombre: '', correoElectronico: '', contrasena: '' };
+  modoEdicion: boolean = false;
   constructor(private extraer: ServiceService) {}
 
   ngOnInit() {
@@ -92,10 +94,26 @@ export class BooksComponent  implements OnInit {
         });
       }
     }
-
+ 
   
-
+    editarDato(index: number) {
+      this.datoEditado = { ...this.listar[index] };
+      this.modoEdicion = true;
+      this.exDialog = true;
+    }
+  
+    guardarEdicion() {
+      // Lógica para guardar la edición (puedes llamar al servicio correspondiente)
+      this.extraer.editarDato(this.datoEditado.id, this.datoEditado).subscribe(response => {
+        console.log('Dato editado', response);
+        this.exDialog = true;
+        this.traer(); // Actualizar la lista después de editar un dato
+      });
+      this.exDialog = true;
+    }
+  
+    cancelarEdicion() {
+      this.modoEdicion = false;
+    }
     
 }
-
-

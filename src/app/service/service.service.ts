@@ -47,7 +47,7 @@ export class ServiceService {
   }
  // Método para Editar datos
 
-public editarDato(id: number, data: any): Observable<any> {
+ public editarDato(id: number, data: any): Observable<any> {
   const url = 'http://localhost:8081/api/usuario/'; // Asegúrate de tener un endpoint que admita la actualización por ID
 
   const httpOptions = {
