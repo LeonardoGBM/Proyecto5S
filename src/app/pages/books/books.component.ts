@@ -2,9 +2,6 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MessageService } from 'primeng/api';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { ServiceService } from 'src/app/service/service.service';
-
-
-
 @Component({
   selector: 'app-books',
   templateUrl: './books.component.html',
@@ -58,6 +55,7 @@ export class BooksComponent  implements OnInit {
     
       this.extraer.agregarDato(data).subscribe(response => {
         console.log('Dato agregado', response);
+        this.traer(); 
         // Puedes agregar lógica adicional aquí si es necesario
       });
     }
@@ -96,8 +94,8 @@ export class BooksComponent  implements OnInit {
     }
  
   
-    editarDato(index: number) {
-      this.datoEditado = { ...this.listar[index] };
+    editarDato(dato: any) {
+      this.datoEditado = { ...dato };
       this.modoEdicion = true;
       this.exDialog = true;
     }

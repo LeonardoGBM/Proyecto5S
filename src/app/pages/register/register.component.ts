@@ -15,22 +15,26 @@ interface PageEvent {
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit{
-  listar: any[] = [];
-  nuevoDato:  string='';
+ 
   correo:  string='';
   authService: any;
+  editando: boolean = false;
+  listar: any[] = [];
+  nuevoDato: string='';
+  datoEditado: any = { nombre: '', correoElectronico: '', contrasena: '' };
+  modoEdicion: boolean = false;
   constructor(private extraer: ServiceService) {}
 
   ngOnInit() {
     this.traer();
   }
-
-  traer() {
+    //Funcion para Enlistar datos
+    traer() {
     this.extraer.datos().subscribe(data => {
       this.listar = data;
       console.log(data);
     });
-  }
+    }
 
   first: number = 0;
 
@@ -45,6 +49,8 @@ export class RegisterComponent implements OnInit{
       this.rows = event.rows;
     }
 
+    
+
 
     //Funcion para agregar datos:
     agregarDato(){
@@ -55,6 +61,7 @@ export class RegisterComponent implements OnInit{
     
       this.extraer.agregarDato(data).subscribe(response => {
         console.log('Dato agregado', response);
+        this.traer(); 
         // Puedes agregar lógica adicional aquí si es necesario
       });
     }
@@ -62,15 +69,24 @@ export class RegisterComponent implements OnInit{
     //modal nuevo
 
     displayDialog: boolean = false;
+    exDialog: boolean = false;
+
+
 
     showDialog() {
     this.displayDialog = true;
     }
-
     hideDialog() {
-    this.displayDialog = false;
-    }
+      this.displayDialog = false;
+      }
 
+    //Formulario de editar
+    EditDialog() {
+      this.exDialog = true;
+      }
+    exitDialog() {
+      this.exDialog = false;
+      }
 
     //Funcion para eliminar datos
     eliminar(dato: any) {
@@ -81,8 +97,27 @@ export class RegisterComponent implements OnInit{
           this.traer();
         });
       }
-
+    }
+ 
+  
+    editarDato(dato: any) {
+      this.datoEditado = { ...dato };
+      this.modoEdicion = true;
+      this.exDialog = true;
+    }
+  
+    guardarEdicion() {
+      // Lógica para guardar la edición (puedes llamar al servicio correspondiente)
+      this.extraer.editarDato(this.datoEditado.id, this.datoEditado).subscribe(response => {
+        console.log('Dato editado', response);
+        this.exDialog = true;
+        this.traer(); // Actualizar la lista después de editar un dato
+      });
+      this.exDialog = true;
+    }
+  
+    cancelarEdicion() {
+      this.modoEdicion = false;
+    }
+    
 }
-
-}
-
