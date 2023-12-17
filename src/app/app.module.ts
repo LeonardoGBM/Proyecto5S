@@ -37,25 +37,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     NavComponent,
     FooterComponent,
     SidebarComponent,
-<<<<<<< HEAD
     RentalsComponent,
     EmailComponent
-=======
-    RentalsComponent
-
->>>>>>> 18aad1e8c56edc8ce03d52cbf1e5e309335645c2
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     PrimengModule,
     SidebarModule,
-<<<<<<< HEAD
     FormsModule,
     BrowserAnimationsModule
     
-=======
->>>>>>> 18aad1e8c56edc8ce03d52cbf1e5e309335645c2
   ],
   providers: [],
   bootstrap: [AppComponent]
