@@ -57,7 +57,7 @@ export class ServiceCategoriesService {
     })
   };
 
-  return this.http.put(`${this.api}usuario/`, data, httpOptions)
+  return this.http.put(`${this.api}categories/`, data, httpOptions)
     .pipe(
       catchError((error: any) => {
         console.error('Error al editar el dato:', error);

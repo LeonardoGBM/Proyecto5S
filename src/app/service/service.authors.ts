@@ -16,7 +16,7 @@ export class ServiceAuthors {
   // Metodos de authors
 //Metodo para Enlistar datos
   public datos():Observable<any>{
-    return this.http.get<any>(`${this.api}author/`)
+    return this.http.get<any>(`${this.api}authors`)
   };
 
   $modal = new EventEmitter<any>();
@@ -27,7 +27,7 @@ export class ServiceAuthors {
         'Content-Type': 'application/json'
       })
     };
-    return this.http.post(`${this.api}author/`, data, httpOptions)
+    return this.http.post(`${this.api}authors/`, data, httpOptions)
     .pipe(
       catchError((error: any) => {
         console.error('Error al agregar el dato:', error);
@@ -37,7 +37,7 @@ export class ServiceAuthors {
   }
 // Metodo para Eliminar datos
   eliminar(id: number): Observable<any> {
-    const url = `${this.api}usuario/${id}/`;
+    const url = `${this.api}authors/${id}/`;
     console.log('URL de eliminación:', url);
     return this.http.delete(url)
       .pipe(
@@ -57,7 +57,7 @@ export class ServiceAuthors {
     })
   };
 
-  return this.http.put(`${this.api}usuario/`, data, httpOptions)
+  return this.http.put(`${this.api}authors/`, data, httpOptions)
     .pipe(
       catchError((error: any) => {
         console.error('Error al editar el dato:', error);

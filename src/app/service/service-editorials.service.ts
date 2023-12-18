@@ -16,7 +16,7 @@ export class ServiceEditorialsService {
   // Metodos de authors
 //Metodo para Enlistar datos
   public datos():Observable<any>{
-    return this.http.get<any>(`${this.api}usuario/`)
+    return this.http.get<any>(`${this.api}publisher`)
   };
 
   $modal = new EventEmitter<any>();
@@ -27,7 +27,7 @@ export class ServiceEditorialsService {
         'Content-Type': 'application/json'
       })
     };
-    return this.http.post(`${this.api}usuario/`, data, httpOptions)
+    return this.http.post(`${this.api}/`, data, httpOptions)
     .pipe(
       catchError((error: any) => {
         console.error('Error al agregar el dato:', error);
@@ -37,7 +37,7 @@ export class ServiceEditorialsService {
   }
 // Metodo para Eliminar datos
   eliminar(id: number): Observable<any> {
-    const url = `${this.api}usuario/${id}/`;
+    const url = `${this.api}publisher/${id}/`;
     console.log('URL de eliminación:', url);
     return this.http.delete(url)
       .pipe(
@@ -57,7 +57,7 @@ export class ServiceEditorialsService {
     })
   };
 
-  return this.http.put(`${this.api}usuario/`, data, httpOptions)
+  return this.http.put(`${this.api}publisher/`, data, httpOptions)
     .pipe(
       catchError((error: any) => {
         console.error('Error al editar el dato:', error);

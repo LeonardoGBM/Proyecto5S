@@ -14,11 +14,11 @@ interface PageEvent {
 })
 export class AuthorsComponent implements OnInit {
 
-  authorName:  string='';
+  nombre:  string='';
   authService: any;
   editando: boolean = false;
   listar: any[] = [];
-  datoEditado: any = { authorName: '', };
+  datoEditado: any = { nombre: '', };
   modoEdicion: boolean = false;
   constructor(private extraer: ServiceAuthors) {}
 
@@ -32,12 +32,12 @@ export class AuthorsComponent implements OnInit {
       console.log(data);
     });
     }
-
+  // Paginador
   first: number = 0;
 
     rows: number = 10;
 
-    onPageChange(event: any) {
+    onPageChange(event: any): void {
       // Log the event to see its structure
       console.log(event);
 
@@ -52,7 +52,7 @@ export class AuthorsComponent implements OnInit {
     //Funcion para agregar datos:
     agregarDato(){
       const data = {
-        authorName: this.authorName
+        nombre: this.nombre
       };
     
       this.extraer.agregarDato(data).subscribe(response => {
