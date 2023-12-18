@@ -14,11 +14,11 @@ interface PageEvent {
 })
 export class AuthorsComponent implements OnInit {
 
-  nombre:  string='';
+  authorName:  string='';
   authService: any;
   editando: boolean = false;
   listar: any[] = [];
-  datoEditado: any = { nombre: '', };
+  datoEditado: any = { authorName: '', };
   modoEdicion: boolean = false;
   constructor(private extraer: ServiceAuthors) {}
 
@@ -52,7 +52,7 @@ export class AuthorsComponent implements OnInit {
     //Funcion para agregar datos:
     agregarDato(){
       const data = {
-        nombre: this.nombre
+        authorName: this.authorName
       };
     
       this.extraer.agregarDato(data).subscribe(response => {
