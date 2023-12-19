@@ -116,7 +116,6 @@
             <p-table [value]="listar.slice(first, first + rows)" [tableStyle]="{ 'min-width': '50rem' }">
                 <ng-template pTemplate="header">
                   <tr>
-                    <th>Lector</th>
                     <th>Libro</th>
                     <th>Fecha de salida</th>
                     <th>Fecha de entrada</th>
@@ -125,7 +124,6 @@
                 </ng-template>
                 <ng-template pTemplate="body" let-dato let-i="index">
                   <tr>
-                    <td>{{ dato.reader }}</td>
                     <td>{{ dato.title }}</td>
                     <td>{{ dato.departureDate }}</td>
                     <td>{{ dato.entryDate }}</td>

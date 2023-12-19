@@ -106,6 +106,7 @@ export class AuthorsComponent implements OnInit {
         console.log('Dato editado', response);
         this.exDialog = true;
         this.traer(); // Actualizar la lista después de editar un dato
+        this.exDialog = false;
       });
       this.exDialog = true;
     }

@@ -52,6 +52,7 @@ export class CategoriesComponent  implements OnInit {
       this.extraer.agregarDato(data).subscribe(response => {
         console.log('Dato agregado', response);
         this.traer(); 
+        this.category = ''
         // Puedes agregar lógica adicional aquí si es necesario
       });
     }
@@ -102,6 +103,7 @@ export class CategoriesComponent  implements OnInit {
         console.log('Dato editado', response);
         this.exDialog = true;
         this.traer(); // Actualizar la lista después de editar un dato
+        this.exDialog = false;
       });
       this.exDialog = true;
     }

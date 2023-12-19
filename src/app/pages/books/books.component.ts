@@ -101,6 +101,15 @@ export class BooksComponent  implements OnInit {
       this.extraer.agregarDato(data).subscribe(response => {
         console.log('Dato agregado', response);
         this.traer(); 
+        this.exDialog = false;
+        this.title = '';
+        this.publicationDate ='';
+        this.author ='';
+        this.category ='';
+        this.publisher ='';
+        this.language ='';
+        this.pages = '';
+        this.description ='';
         // Puedes agregar lógica adicional aquí si es necesario
       });
     }
@@ -151,6 +160,7 @@ export class BooksComponent  implements OnInit {
         console.log('Dato editado', response);
         this.exDialog = true;
         this.traer(); // Actualizar la lista después de editar un dato
+        this.exDialog = false;
       });
       this.exDialog = true;
     }

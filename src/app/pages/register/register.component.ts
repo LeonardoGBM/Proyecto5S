@@ -64,7 +64,10 @@ export class RegisterComponent implements OnInit{
       this.extraer.agregarDato(data).subscribe(response => {
         console.log('Dato agregado', response);
         this.traer(); 
-        // Puedes agregar lógica adicional aquí si es necesario
+        this.name = '' 
+        this.lastname = '' 
+        this.address = '' 
+        this.password = '' 
       });
     }
 
@@ -114,6 +117,7 @@ export class RegisterComponent implements OnInit{
         console.log('Dato editado', response);
         this.exDialog = true;
         this.traer(); // Actualizar la lista después de editar un dato
+        this.exDialog = false;
       });
       this.exDialog = true;
     }
