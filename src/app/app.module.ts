@@ -39,7 +39,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     SidebarComponent,
     RentalsComponent,
     EmailComponent
-
   ],
   imports: [
     BrowserModule,

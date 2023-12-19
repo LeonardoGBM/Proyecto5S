@@ -14,7 +14,6 @@ import { RentalsComponent } from './pages/rentals/rentals.component';
 import { EmailComponent } from './pages/email/email.component';
 import { RolesComponent } from './pages/roles/roles.component';
 
-
 const routes: Routes = [
   { path: '', component:LoginComponent },
   { path: 'dashboard', component:DashboardComponent },
@@ -26,6 +25,7 @@ const routes: Routes = [
   { path: 'rental', component:RentalsComponent },
   { path: 'reset-password', component: EmailComponent },
   { path: 'termino', component:RolesComponent },
+  
 
 
 ];
