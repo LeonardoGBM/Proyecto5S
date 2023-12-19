@@ -23,14 +23,14 @@
             </div>
             <div class="modal-overlay" *ngIf="displayDialog"></div>
 
-            <p-dialog header="Registrar libro" [(visible)]="displayDialog" [modal]="true" [responsive]="true">
+            <p-dialog header="Registrar Categoría" [(visible)]="displayDialog" [modal]="true" [responsive]="true">
                 <!-- Contenido del diálogo -->
                 <form style="width: 500px;" (submit)="agregarDato()">
 
                     <div class="form-group">
                         <label for="title" class="" style="font-size: 15px;"><b>Categoria:</b></label>
                         <input type="text" [(ngModel)]="categoryName" name="categoryName" class="form-control" id="title"
-                            placeholder="Ingrese el título">
+                            placeholder="Ingrese la categoría">
                     </div>
                     <div class="d-flex justify-content-between align-items-center mt-4">
                         <div style="margin-left: 90px;">
@@ -52,14 +52,14 @@
         <!-- Formulario Editar -->
         <div class="modal-overlay" *ngIf="exDialog"></div>
 
-        <p-dialog header="Registrar libro" [(visible)]="displayDialog" [modal]="true" [responsive]="true">
+        <p-dialog header="Registrar Categoría" [(visible)]="displayDialog" [modal]="true" [responsive]="true">
             <!-- Contenido del diálogo -->
             <form style="width: 500px;" (submit)="agregarDato()">
 
                 <div class="form-group">
                     <label for="title" class="" style="font-size: 15px;"><b>Categoria:</b></label>
                     <input type="text" [(ngModel)]="datoEditado.categoryName" name="categoryName" class="form-control" id="title"
-                        placeholder="Ingrese la categorí">
+                        placeholder="Ingrese la categoría">
                 </div>
                 <div class="d-flex justify-content-between align-items-center mt-4">
                     <div style="margin-left: 90px;">
@@ -78,7 +78,6 @@
         </p-dialog>
 
     </div>
-    <!-- Formulario Editar -->
 
 </div>
 <div class="card">

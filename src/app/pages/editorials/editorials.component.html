@@ -20,7 +20,7 @@
                 <p-button label="Agregar" (click)="showDialog()" [raised]="true" severity="Agregar"><i class="fas fa-plus fa-1x" style="color: white; margin-left: 10px; cursor: pointer; margin-right: 15px;"></i></p-button>
             </div>
       
-            <p-dialog header="Registrar libro" [(visible)]="displayDialog" [modal]="true" [responsive]="true">
+            <p-dialog header="Registrar Publicación" [(visible)]="displayDialog" [modal]="true" [responsive]="true">
                 <!-- Contenido del diálogo -->
                 <form style="width: 500px;" (submit)="agregarDato()">
 
@@ -48,7 +48,7 @@
         <!-- Formulario Editar -->
         <div class="modal-overlay" *ngIf="exDialog"></div>
 
-        <p-dialog header="Editar libro" [(visible)]="exDialog" [modal]="true" [responsive]="true">
+        <p-dialog header="Editar Publicación" [(visible)]="exDialog" [modal]="true" [responsive]="true">
             <!-- Contenido del diálogo -->
             <form style="width: 500px;" *ngIf="modoEdicion" (submit)="guardarEdicion()">
 

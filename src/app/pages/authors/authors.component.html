@@ -22,7 +22,7 @@
             </div>
             <div class="modal-overlay" *ngIf="displayDialog"></div>
 
-            <p-dialog header="Registrar libro" [(visible)]="displayDialog" [modal]="true" [responsive]="true">
+            <p-dialog header="Registrar Autor" [(visible)]="displayDialog" [modal]="true" [responsive]="true">
                 <!-- Contenido del diálogo -->
                 <form style="width: 500px;" (submit)="agregarDato()">
         
@@ -46,21 +46,20 @@
                     </div>
                 </form>
 
-
             </p-dialog>
 
         </div>
         <!-- Formulario Editar -->
         <div class="modal-overlay" *ngIf="exDialog"></div>
 
-        <p-dialog header="Editar libro" [(visible)]="exDialog" [modal]="true" [responsive]="true">
+        <p-dialog header="Editar autor" [(visible)]="exDialog" [modal]="true" [responsive]="true">
             <!-- Contenido del diálogo -->
             <form style="width: 500px;" *ngIf="modoEdicion" (submit)="guardarEdicion()">
 
                 <div class="form-group">
-                    <label for="title" class="" style="font-size: 15px;"><b>Título:</b></label>
-                    <input type="text" [(ngModel)]="datoEditado.authorName" name="nombreEditado" class="form-control" id="title"
-                        placeholder="Ingrese el título" style="background-color: rgba(0, 0, 0, 0.212); border-color: black; background: white; font-family: 'Monospace', monospace;">
+                    <label for="title" class="" style="font-size: 15px;"><b>Autor:</b></label>
+                    <input type="text" [(ngModel)]="datoEditado.authorName" name="authorEditado" class="form-control" id="author"
+                        placeholder="Ingrese el autor" style="background-color: rgba(0, 0, 0, 0.212); border-color: black; background: white; font-family: 'Monospace', monospace;">
                 </div>
                 <div class="d-flex justify-content-between align-items-center mt-4">
                     <div style="margin-left: 90px;">

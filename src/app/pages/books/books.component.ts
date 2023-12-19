@@ -3,6 +3,7 @@ import { MessageService } from 'primeng/api';
 import { DialogService } from 'primeng/dynamicdialog';
 import { ServiceBooksService } from 'src/app/service/service-books.service';
 
+
 @Component({
   selector: 'app-books',
   templateUrl: './books.component.html',
@@ -97,7 +98,7 @@ export class BooksComponent  implements OnInit {
 
     //Funcion para eliminar datos
     eliminar(dato: any) {
-      if (confirm('¿Quiere eliminar el libro?')) {
+      if (confirm('¿Estas seguro de eliminar este registro?')) {
         this.extraer.eliminar(dato.id).subscribe(response => {
           console.log('Libro eliminado', response);
           // Actualiza la lista después de eliminar

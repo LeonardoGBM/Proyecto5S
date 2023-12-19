@@ -92,9 +92,9 @@ export class RegisterComponent implements OnInit{
 
     //Funcion para eliminar datos
     eliminar(dato: any) {
-      if (confirm('¿Elimina a joselito XD?')) {
+      if (confirm('¿Estas seguro de eliminar este registro?')) {
         this.extraer.eliminar(dato.id).subscribe(response => {
-          console.log('Libro eliminado', response);
+          console.log('Usuario eliminado', response);
           // Actualiza la lista después de eliminar
           this.traer();
         });
