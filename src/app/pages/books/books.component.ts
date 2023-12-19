@@ -27,7 +27,7 @@ export class BooksComponent  implements OnInit {
   listar: any[] = [];
   listarAuthors: any[] = [];
   listarCompleto: any[] = []; 
-  datoEditado: any = { title: '', };
+  datoEditado: any = { title: '', publicationDate: '', author: '', category: '',publisher: '', language: '', pages: '', description: ''};
   modoEdicion: boolean = false;
   constructor(private extraer: ServiceBooksService ) {}
 
@@ -89,6 +89,13 @@ export class BooksComponent  implements OnInit {
     agregarDato(){
       const data = {
         title: this.title,
+        publicationDate: this.publicationDate,
+        author: this.author,
+        category: this.category,
+        publisher: this.publisher,
+        language: this.language,
+        pages: this.pages,
+        description: this.description,
       };
     
       this.extraer.agregarDato(data).subscribe(response => {
