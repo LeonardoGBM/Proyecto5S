@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { forkJoin } from 'rxjs';
 import { ServiceRentalsService } from 'src/app/service/service-rentals.service';
 
 @Component({
@@ -23,16 +24,29 @@ export class RentalsComponent implements OnInit {
   }
     //Funcion para Enlistar datos
     traer() {
-      this.extraer.datos().subscribe(data => {
-        this.listar = data;
-        
-        this.extraer.datosBook().subscribe(data => {
-          this.listar = this.listar.concat(data);  // Concatena los datos del libro a la lista existente
-          console.log(data);
-        })
+      forkJoin([
+        this.extraer.datos(),
+        this.extraer.datosBook()
+      ]).subscribe(responses => {
+        const data1 = responses[0];
+        const data2 = responses[1];
+    
+        // Combina los datos de ambas solicitudes
+        this.listar = [];
+    
+        for (let i = 0; i < Math.max(data1.length, data2.length); i++) {
+          const combinedData = {
+            reader: data1[i]?.reader || '',
+            title: data2[i]?.title || '',
+            departureDate: data1[i]?.departureDate || '',
+            entryDate: data1[i]?.entryDate || ''
+          };
+    
+          this.listar.push(combinedData);
+        }
+    
+        console.log(this.listar);
       });
-      
-     ;
     }
 
   first: number = 0;

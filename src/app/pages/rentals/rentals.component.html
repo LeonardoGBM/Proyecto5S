@@ -115,42 +115,27 @@
         <div class="card">
             <p-table [value]="listar.slice(first, first + rows)" [tableStyle]="{ 'min-width': '50rem' }">
                 <ng-template pTemplate="header">
-                    <tr>
-                        <th>Lector</th>
-                        <th>Libro</th>
-                        <th>Fecha de salida</th>
-                        <th>Fecha de entrada</th>
-                        <th class=" d-flex justify-content-center">Editar/Eliminar</th>
-
-                    </tr>
+                  <tr>
+                    <th>Lector</th>
+                    <th>Libro</th>
+                    <th>Fecha de salida</th>
+                    <th>Fecha de entrada</th>
+                    <th class="d-flex justify-content-center">Editar/Eliminar</th>
+                  </tr>
                 </ng-template>
                 <ng-template pTemplate="body" let-dato let-i="index">
-                    <tr>
-                        
-                        <!-- ... (otras columnas) -->
-                        <td class="d-flex justify-content-center"> 
-                            <i class="fas fa-pencil-alt fa-lg"
-                                style="color: blue; cursor: pointer; margin-right: 10px;" (click)="editarDato(i)"></i>
-                            <i class="fas fa-trash-alt fa-lg" style="color: red; cursor: pointer;"
-                                (click)="eliminar(dato)"></i>
-                        </td>
-                    </tr>
+                  <tr>
+                    <td>{{ dato.reader }}</td>
+                    <td>{{ dato.title }}</td>
+                    <td>{{ dato.departureDate }}</td>
+                    <td>{{ dato.entryDate }}</td>
+                    <td class="d-flex justify-content-center">
+                      <i class="fas fa-pencil-alt fa-lg" style="color: blue; cursor: pointer; margin-right: 10px;" (click)="editarDato(dato)"></i>
+                      <i class="fas fa-trash-alt fa-lg" style="color: red; cursor: pointer;" (click)="eliminar(dato)"></i>
+                    </td>
+                  </tr>
                 </ng-template>
-                <ng-template pTemplate="body" let-dato let-i="index">
-                    <tr>
-                        <td>{{ dato.reader }}</td>
-                        <td>{{ dato.title }}</td>
-                        <td>{{ dato.departureDate }}</td>
-                        <td>{{ dato.entryDate }}</td>
-                        <td class=" d-flex justify-content-center"> 
-                            <i class="fas fa-pencil-alt fa-lg"
-                                style="color: blue; cursor: pointer; margin-right: 10px;" (click)="editarDato(dato)"></i>
-                            <i class="fas fa-trash-alt fa-lg" style="color: red; cursor: pointer;"
-                                (click)="eliminar(dato)"></i>
-                        </td>
-                    </tr>
-                </ng-template>
-            </p-table>
+              </p-table>
             <div class="card flex justify-content-center">
                 <p-paginator (onPageChange)="onPageChange($event)" [first]="first" [rows]="rows" [totalRecords]="listar.length"
                     [rowsPerPageOptions]="[6]"></p-paginator>
