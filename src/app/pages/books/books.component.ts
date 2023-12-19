@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MessageService } from 'primeng/api';
 import { DialogService } from 'primeng/dynamicdialog';
+import { forkJoin } from 'rxjs';
 import { ServiceBooksService } from 'src/app/service/service-books.service';
 import { ServiceAuthors } from 'src/app/service/service.authors';
 
@@ -28,26 +29,45 @@ export class BooksComponent  implements OnInit {
   listarCompleto: any[] = []; 
   datoEditado: any = { title: '', };
   modoEdicion: boolean = false;
-  constructor(private extraer: ServiceBooksService , private authors: ServiceAuthors ) {}
+  constructor(private extraer: ServiceBooksService ) {}
 
   ngOnInit() {
     this.traer();
-    this.traerAuthors()
   }
     //Funcion para Enlistar datos
     traer() {
-    this.extraer.datos().subscribe(data => {
-      this.listar = data;
-      console.log(data);
-    });
-    }
-
-    traerAuthors() {
-      this.authors.datos().subscribe(data => {
-        this.listarAuthors = data;
-        console.log(data);
+      forkJoin([
+        this.extraer.datos(),
+        this.extraer.datosCategory(),
+        this.extraer.datosEditorial(),
+        this.extraer.datosAuthor(),
+      ]).subscribe(responses => {
+        const data1 = responses[0];
+        const data2 = responses[1];
+        const data3 = responses[2];
+        const data4 = responses[3];
+    
+        // Combina los datos de ambas solicitudes
+        this.listar = [];
+    
+        for (let i = 0; i < Math.max(data1.length, data2.length, data3.length, data4.length); i++) {
+          const combinedData = {
+            title: data1[i]?.title || '',
+            publicationDate: data1[i]?.publicationDate || '',
+            authorName: data4[i]?.authorName || '',  
+            categoryName: data2[i]?.categoryName || '',
+            publisherName: data3[i]?.publisherName || '',
+            language: data1[i]?.language || '',
+            pages: data1[i]?.pages || '',
+            description: data1[i]?.description || ''
+          };
+    
+          this.listar.push(combinedData);
+        }
+    
+        console.log(this.listar);
       });
-      } 
+    }
 
   first: number = 0;
 

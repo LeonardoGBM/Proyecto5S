@@ -36,7 +36,7 @@ export class RentalsComponent implements OnInit {
     
         for (let i = 0; i < Math.max(data1.length, data2.length); i++) {
           const combinedData = {
-            reader: data1[i]?.reader || '',
+        
             title: data2[i]?.title || '',
             departureDate: data1[i]?.departureDate || '',
             entryDate: data1[i]?.entryDate || ''

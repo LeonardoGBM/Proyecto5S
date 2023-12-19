@@ -19,6 +19,15 @@ export class ServiceBooksService {
     return this.http.get<any>(`${this.api}books`)
   };
   
+  public datosCategory():Observable<any>{
+    return this.http.get<any>(`${this.api}categories`)
+  };
+  public datosEditorial():Observable<any>{
+    return this.http.get<any>(`${this.api}publisher`)
+  };
+  public datosAuthor():Observable<any>{
+    return this.http.get<any>(`${this.api}author`)
+  };
 
   $modal = new EventEmitter<any>();
 //Metodo para Agregar datos
