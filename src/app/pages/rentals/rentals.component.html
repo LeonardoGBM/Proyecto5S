@@ -24,7 +24,7 @@
             <div class="modal-overlay" *ngIf="displayDialog"></div>
 
        
-            <p-dialog header="Registrar libro" [(visible)]="displayDialog" [modal]="true" [responsive]="true">
+            <p-dialog header="Registrar alquiler" [(visible)]="displayDialog" [modal]="true" [responsive]="true">
                 <!-- Contenido del diálogo -->
                 <form style="width: 500px;" (submit)="agregarDato()">
                     <div class="form-group">
@@ -70,7 +70,7 @@
         <!-- Formulario Editar -->
         <div class="modal-overlay" *ngIf="exDialog"></div>
 
-        <p-dialog header="Editar libro" [(visible)]="exDialog" [modal]="true" [responsive]="true">
+        <p-dialog header="Editar alquiler" [(visible)]="exDialog" [modal]="true" [responsive]="true">
             <!-- Contenido del diálogo -->
             <form style="width: 500px;" *ngIf="modoEdicion" (submit)="guardarEdicion()">
 
