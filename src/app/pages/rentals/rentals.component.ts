@@ -7,10 +7,10 @@ import { ServiceRentalsService } from 'src/app/service/service-rentals.service';
   styleUrls: ['./rentals.component.css']
 })
 export class RentalsComponent implements OnInit {
-  reader:  string='';
-  book:  string='';
-  departureDate: Date = new Date();
-  entryDate:  Date = new Date();
+  readers:  string='';
+  books:  string='';
+  departureDates: Date = new Date();
+  entryDates:  Date = new Date();
   authService: any;
   editando: boolean = false;
   listar: any[] = [];
@@ -23,10 +23,16 @@ export class RentalsComponent implements OnInit {
   }
     //Funcion para Enlistar datos
     traer() {
-    this.extraer.datos().subscribe(data => {
-      this.listar = data;
-      console.log(data);
-    });
+      this.extraer.datos().subscribe(data => {
+        this.listar = data;
+        
+        this.extraer.datosBook().subscribe(data => {
+          this.listar = this.listar.concat(data);  // Concatena los datos del libro a la lista existente
+          console.log(data);
+        })
+      });
+      
+     ;
     }
 
   first: number = 0;
@@ -48,10 +54,10 @@ export class RentalsComponent implements OnInit {
     //Funcion para agregar datos:
     agregarDato(){
       const data = {
-        reader: this.reader,
-        book: this.book,
-        departureDate: this.departureDate,
-        entryDate: this.entryDate,
+        reader: this.readers,
+        book: this.books,
+        departureDate: this.departureDates,
+        entryDate: this.entryDates,
       };
     
       this.extraer.agregarDato(data).subscribe(response => {

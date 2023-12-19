@@ -11,7 +11,7 @@ export class CategoriesComponent  implements OnInit {
   authService: any;
   editando: boolean = false;
   listar: any[] = [];
-  categoryName: string = '';
+  category: string = '';
   datoEditado: any = { categoryName: '' };
   modoEdicion: boolean = false;
   constructor(private extraer: ServiceCategoriesService) {}
@@ -46,7 +46,7 @@ export class CategoriesComponent  implements OnInit {
     //Funcion para agregar datos:
     agregarDato(){
       const data = {
-        categoryName: this.categoryName,
+        categoryName: this.category
       };
     
       this.extraer.agregarDato(data).subscribe(response => {

@@ -19,6 +19,11 @@ export class ServiceRentalsService {
     return this.http.get<any>(`${this.api}rentals`)
   };
 
+  public datosBook():Observable<any>{
+    return this.http.get<any>(`${this.api}books`)
+  };
+
+
   $modal = new EventEmitter<any>();
 //Metodo para Agregar datos
   public agregarDato(data: any): Observable<any> {
@@ -57,7 +62,7 @@ export class ServiceRentalsService {
     })
   };
 
-  return this.http.put(`${this.api}rentals/`, data, httpOptions)
+  return this.http.put(`${this.api}rentals/${id}`, data, httpOptions)
     .pipe(
       catchError((error: any) => {
         console.error('Error al editar el dato:', error);

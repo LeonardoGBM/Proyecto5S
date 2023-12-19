@@ -27,7 +27,7 @@ export class ServiceEditorialsService {
         'Content-Type': 'application/json'
       })
     };
-    return this.http.post(`${this.api}/`, data, httpOptions)
+    return this.http.post(`${this.api}publisher`, data, httpOptions)
     .pipe(
       catchError((error: any) => {
         console.error('Error al agregar el dato:', error);
@@ -57,7 +57,7 @@ export class ServiceEditorialsService {
     })
   };
 
-  return this.http.put(`${this.api}publisher/`, data, httpOptions)
+  return this.http.put(`${this.api}publisher/${id}`, data, httpOptions)
     .pipe(
       catchError((error: any) => {
         console.error('Error al editar el dato:', error);

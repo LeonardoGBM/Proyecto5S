@@ -29,25 +29,25 @@
                 <form style="width: 500px;" (submit)="agregarDato()">
                     <div class="form-group">
                         <label for="title" class="" style="font-size: 15px;"><b>Lector:</b></label>
-                        <input type="text" [(ngModel)]="reader" name="reader" class="form-control" placeholder="Ingrese el nombre del lector">
+                        <input type="text" [(ngModel)]="readers" name="reader" class="form-control" placeholder="Ingrese el nombre del lector">
                     </div>
                     <div class="form-group">
                         <label for="language" class=""
                             style="font-size: 15px; font-family: 'Monospace', monospace;"><b>Libro:</b></label>
-                        <input type="text" [(ngModel)]="book" name="book" class="form-control" placeholder="Ingrese el libro"
+                        <input type="text" [(ngModel)]="books" name="book" class="form-control" placeholder="Ingrese el libro"
                             style="background-color: rgba(0, 0, 0, 0.212); border-color: black; background: white; font-family: 'Monospace', monospace;">
                     </div>
                     <div class="form-group">
                         <label for="author" class=""
                             style="font-size: 15px; font-family: 'Monospace', monospace;"><b>Fecha de salida:</b></label>
-                        <input type="date" [(ngModel)]="departureDate" name="departureDate" class="form-control" 
+                        <input type="date" [(ngModel)]="departureDates" name="departureDate" class="form-control" 
                             placeholder="Ingrese la fecha de salida"
                             style="background-color: rgba(0, 0, 0, 0.212); border-color: black; background: white; font-family: 'Monospace', monospace;">
                     </div>
                     <div class="form-group">
                         <label for="category" class=""
                             style="font-size: 15px; font-family: 'Monospace', monospace;"><b>Fecha de entrada:</b></label>
-                        <input type="date" [(ngModel)]="entryDate" name="entryDate" class="form-control"  placeholder="Ingrese la fecha de entrada"
+                        <input type="date" [(ngModel)]="entryDates" name="entryDate" class="form-control"  placeholder="Ingrese la fecha de entrada"
                             style="background-color: rgba(0, 0, 0, 0.212); border-color: black; background: white; font-family: 'Monospace', monospace;">
                     </div>
                     <div class="d-flex justify-content-between align-items-center mt-4">
@@ -139,7 +139,7 @@
                 <ng-template pTemplate="body" let-dato let-i="index">
                     <tr>
                         <td>{{ dato.reader }}</td>
-                        <td>{{ dato.book }}</td>
+                        <td>{{ dato.title }}</td>
                         <td>{{ dato.departureDate }}</td>
                         <td>{{ dato.entryDate }}</td>
                         <td class=" d-flex justify-content-center"> 

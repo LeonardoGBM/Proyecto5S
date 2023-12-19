@@ -11,7 +11,7 @@ export class EditorialsComponent  implements OnInit {
   authService: any;
   editando: boolean = false;
   listar: any[] = [];
-  publisherName: string = '';
+  publisher: string = '';
   datoEditado: any = { publisherName: '' };
   modoEdicion: boolean = false;
   constructor(private extraer: ServiceEditorialsService) {}
@@ -46,7 +46,7 @@ export class EditorialsComponent  implements OnInit {
     //Funcion para agregar datos:
     agregarDato(){
       const data = {
-        publisherName: this.publisherName,
+        publisherName: this.publisher,
       };
     
       this.extraer.agregarDato(data).subscribe(response => {

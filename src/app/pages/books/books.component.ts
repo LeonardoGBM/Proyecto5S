@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MessageService } from 'primeng/api';
 import { DialogService } from 'primeng/dynamicdialog';
 import { ServiceBooksService } from 'src/app/service/service-books.service';
+import { ServiceAuthors } from 'src/app/service/service.authors';
 
 
 @Component({
@@ -11,7 +12,7 @@ import { ServiceBooksService } from 'src/app/service/service-books.service';
   providers: [DialogService, MessageService]
 })
 export class BooksComponent  implements OnInit {
-
+  
   title:  string='';
   publicationDate: string='';
   author:  string='';
@@ -23,12 +24,15 @@ export class BooksComponent  implements OnInit {
   authService: any;
   editando: boolean = false;
   listar: any[] = [];
-  datoEditado: any = { title: '', publicationDate: '', author: '', category: '', publisher: '', language: '', pages: '', description: '' };
+  listarAuthors: any[] = [];
+  listarCompleto: any[] = []; 
+  datoEditado: any = { title: '', };
   modoEdicion: boolean = false;
-  constructor(private extraer: ServiceBooksService) {}
+  constructor(private extraer: ServiceBooksService , private authors: ServiceAuthors ) {}
 
   ngOnInit() {
     this.traer();
+    this.traerAuthors()
   }
     //Funcion para Enlistar datos
     traer() {
@@ -36,7 +40,14 @@ export class BooksComponent  implements OnInit {
       this.listar = data;
       console.log(data);
     });
-    } 
+    }
+
+    traerAuthors() {
+      this.authors.datos().subscribe(data => {
+        this.listarAuthors = data;
+        console.log(data);
+      });
+      } 
 
   first: number = 0;
 
@@ -58,13 +69,6 @@ export class BooksComponent  implements OnInit {
     agregarDato(){
       const data = {
         title: this.title,
-        publicationDate: this.publicationDate,
-        author: this.author,
-        category: this.category,
-        publisher: this.publisher,
-        language: this.language,
-        pages: this.pages,
-        description: this.description
       };
     
       this.extraer.agregarDato(data).subscribe(response => {

@@ -58,7 +58,7 @@ export class ServiceRegisterService {
     })
   };
 
-  return this.http.put(`${this.api}users/`, data, httpOptions)
+  return this.http.put(`${this.api}users/${id}`, data, httpOptions)
     .pipe(
       catchError((error: any) => {
         console.error('Error al editar el dato:', error);

@@ -29,7 +29,7 @@
                     <div class="form-group">
                         <label for="author" class=""
                             style="font-size: 15px; font-family: 'Monospace', monospace;"><b>Autor:</b></label>
-                        <input type="text" [(ngModel)]="authorName" name="name" class="form-control" id="author"
+                        <input type="text" [(ngModel)]="author" name="name" class="form-control" id="author"
                             placeholder="Ingrese el autor"
                             style="background-color: rgba(0, 0, 0, 0.212); border-color: black; background: white; font-family: 'Monospace', monospace;">
                     </div>
@@ -101,7 +101,7 @@
                 </ng-template>
                 <ng-template pTemplate="body" let-dato let-i="index">
                     <tr>
-                        <td>{{ dato.nombre }}</td>
+                        <td>{{ dato.authorName }}</td>
                         <td class=" d-flex justify-content-center"> 
                             <i class="fas fa-pencil-alt fa-lg"
                                 style="color: blue; cursor: pointer; margin-right: 10px;" (click)="editarDato(dato)"></i>
