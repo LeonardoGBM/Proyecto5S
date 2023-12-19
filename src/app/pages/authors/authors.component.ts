@@ -14,7 +14,7 @@ interface PageEvent {
   styleUrls: ['./authors.component.css']
 })
 export class AuthorsComponent implements OnInit {
-
+  filtro: string = '';
   author:  string='';
   authService: any;
   editando: boolean = false;
@@ -28,10 +28,12 @@ export class AuthorsComponent implements OnInit {
   }
     //Funcion para Enlistar datos
     traer() {
-    this.extraer.datos().subscribe(data => {
-      this.listar = data;
-      console.log(data);
-    });
+      this.extraer.datos().subscribe(data => {
+        this.listar = data.filter((dato: any) =>
+        dato.authorName.toLowerCase().includes(this.filtro.toLowerCase())
+        );
+        console.log(this.listar);
+      });
     }
   // Paginador
   first: number = 0;
@@ -57,6 +59,7 @@ export class AuthorsComponent implements OnInit {
         console.log('Dato agregado', response);
         this.traer(); 
         // Puedes agregar lógica adicional aquí si es necesario
+        this.author ='';
       });
     }
 

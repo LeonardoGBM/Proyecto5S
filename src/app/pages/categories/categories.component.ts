@@ -7,7 +7,7 @@ import { ServiceCategoriesService } from 'src/app/service/service-categories.ser
   styleUrls: ['./categories.component.css']
 })
 export class CategoriesComponent  implements OnInit {
-
+  filtro: string = '';
   authService: any;
   editando: boolean = false;
   listar: any[] = [];
@@ -18,13 +18,15 @@ export class CategoriesComponent  implements OnInit {
 
   ngOnInit() {
     this.traer();
-  }
+  } 
     //Funcion para Enlistar datos
     traer() {
-    this.extraer.datos().subscribe(data => {
-      this.listar = data;
-      console.log(data);
-    });
+      this.extraer.datos().subscribe(data => {
+        this.listar = data.filter((dato: any) =>
+          dato.categoryName.toLowerCase().includes(this.filtro.toLowerCase())
+        );
+        console.log(this.listar);
+      });
     }
 
   first: number = 0;

@@ -13,7 +13,7 @@ import { ServiceAuthors } from 'src/app/service/service.authors';
   providers: [DialogService, MessageService]
 })
 export class BooksComponent  implements OnInit {
-  
+  filtro: string = '';
   title:  string='';
   publicationDate: string='';
   author:  string='';
@@ -43,7 +43,7 @@ export class BooksComponent  implements OnInit {
         this.extraer.datosAuthor(),
       ]).subscribe(responses => {
         const data1 = responses[0];
-        const data2 = responses[1];
+        const data2 = responses[1]; 
         const data3 = responses[2];
         const data4 = responses[3];
     
@@ -64,6 +64,13 @@ export class BooksComponent  implements OnInit {
     
           this.listar.push(combinedData);
         }
+        
+        this.listar = this.listar.filter((dato: any) =>
+        dato.title.toLowerCase().includes(this.filtro.toLowerCase()) ||
+        dato.categoryName.toLowerCase().includes(this.filtro.toLowerCase()) ||
+        dato.authorName.toLowerCase().includes(this.filtro.toLowerCase()) ||
+        dato.publisherName.toLowerCase().includes(this.filtro.toLowerCase())
+      );
     
         console.log(this.listar);
       });

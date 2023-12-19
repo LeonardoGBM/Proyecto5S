@@ -9,13 +9,12 @@ import { ServiceRegisterService } from 'src/app/service/service-register.service
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit{
- 
+  filtro: string = '';
   name: string = '';
   lastname: string = '';
   address: string = '';
   email: string = '';
   password: string = '';
-
   authService: any;
   editando: boolean = false;
   listar: any[] = [];
@@ -29,10 +28,16 @@ export class RegisterComponent implements OnInit{
   }
     //Funcion para Enlistar datos
     traer() {
-    this.extraer.datos().subscribe(data => {
-      this.listar = data;
-      console.log(data);
-    });
+      this.extraer.datos().subscribe(data => {
+        this.listar = data.filter((dato: any) =>
+          dato.name.toLowerCase().includes(this.filtro.toLowerCase()) ||
+          dato.lastname.toLowerCase().includes(this.filtro.toLowerCase()) ||
+          dato.address.toLowerCase().includes(this.filtro.toLowerCase()) ||
+          dato.email.toLowerCase().includes(this.filtro.toLowerCase()) ||
+          dato.password.toLowerCase().includes(this.filtro.toLowerCase())
+        );
+        console.log(this.listar);
+      });
     }
 
   first: number = 0;
@@ -66,6 +71,7 @@ export class RegisterComponent implements OnInit{
         this.traer(); 
         this.name = '' 
         this.lastname = '' 
+        this.email = '' 
         this.address = '' 
         this.password = '' 
       });

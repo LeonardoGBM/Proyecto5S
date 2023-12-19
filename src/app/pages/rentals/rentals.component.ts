@@ -8,6 +8,7 @@ import { ServiceRentalsService } from 'src/app/service/service-rentals.service';
   styleUrls: ['./rentals.component.css']
 })
 export class RentalsComponent implements OnInit {
+  filtro: string = '';
   readers:  string='';
   books:  string='';
   departureDates: Date = new Date();
@@ -44,6 +45,13 @@ export class RentalsComponent implements OnInit {
     
           this.listar.push(combinedData);
         }
+          
+        this.listar = this.listar.filter((dato: any) =>
+        dato.readers.toLowerCase().includes(this.filtro.toLowerCase()) ||
+        dato.book.toLowerCase().includes(this.filtro.toLowerCase()) ||
+        dato.departureDate.toLowerCase().includes(this.filtro.toLowerCase()) ||
+        dato.entryDate.toLowerCase().includes(this.filtro.toLowerCase())
+      );
     
         console.log(this.listar);
       });
